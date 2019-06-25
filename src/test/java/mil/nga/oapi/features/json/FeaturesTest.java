@@ -1,4 +1,4 @@
-package mil.nga.openapi.features.json;
+package mil.nga.oapi.features.json;
 
 import java.util.List;
 

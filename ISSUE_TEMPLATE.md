@@ -2,8 +2,8 @@ Please fill out as much known and relevant information as possible.
 
 #### Version Information:
 
-  * OpenAPI Features JSON Java Version:
-  * OpenAPI Features JSON Java Source: (e.g. Central Repository, Release, Source Code Build)
+  * OGC API Features JSON Java Version:
+  * OGC API Features JSON Java Source: (e.g. Central Repository, Release, Source Code Build)
   * IDE Name & Version:
   * Maven Version: (mvn -version)
   * Java Version: (java -version)

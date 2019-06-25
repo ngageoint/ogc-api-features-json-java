@@ -1,22 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>mil.nga.openapi.features</groupId>
-	<artifactId>features-json</artifactId>
+	<groupId>mil.nga.oapi.features</groupId>
+	<artifactId>oapi-features-json</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>OpenAPI Features JSON</name>
-	<url>https://github.com/ngageoint/openapi-features-json-java</url>
-	<description>Library for writing and reading OpenAPI Features to and from JSON</description>
+	<name>OGC API Features JSON</name>
+	<url>https://github.com/ngageoint/ogc-api-features-json-java</url>
+	<description>Library for writing and reading OGC API Features to and from JSON</description>
 	<scm>
-		<url>git@github.com:ngageoint/openapi-features-json-java.git</url>
-		<connection>scm:git:git@github.com:ngageoint/openapi-features-json-java.git</connection>
-		<developerConnection>scm:git:git@github.com:ngageoint/openapi-features-json-java.git</developerConnection>
+		<url>git@github.com:ngageoint/ogc-api-features-json-java.git</url>
+		<connection>scm:git:git@github.com:ngageoint/ogc-api-features-json-java.git</connection>
+		<developerConnection>scm:git:git@github.com:ngageoint/ogc-api-features-json-java.git</developerConnection>
 	</scm>
 	<licenses>
 		<license>
 			<name>The MIT License (MIT)</name>
-			<url>https://github.com/ngageoint/openapi-features-json-java/blob/master/LICENSE.txt</url>
+			<url>https://github.com/ngageoint/ogc-api-features-json-java/blob/master/LICENSE.txt</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
