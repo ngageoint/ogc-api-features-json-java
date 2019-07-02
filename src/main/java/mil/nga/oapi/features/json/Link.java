@@ -13,7 +13,7 @@ import mil.nga.sf.util.SFException;
  * 
  * @author osbornb
  */
-@JsonPropertyOrder({ "href", "rel", "type", "hreflang", "title" })
+@JsonPropertyOrder({ "href", "rel", "type", "hreflang", "title", "length" })
 public class Link extends FeaturesObject {
 
 	/**
@@ -45,6 +45,11 @@ public class Link extends FeaturesObject {
 	 * title
 	 */
 	private String title;
+
+	/**
+	 * length
+	 */
+	private Integer length;
 
 	/**
 	 * Constructor
@@ -156,6 +161,25 @@ public class Link extends FeaturesObject {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	/**
+	 * Get the length
+	 * 
+	 * @return length
+	 */
+	public Integer getLength() {
+		return length;
+	}
+
+	/**
+	 * Set the length
+	 * 
+	 * @param length
+	 *            length
+	 */
+	public void setLength(Integer length) {
+		this.length = length;
 	}
 
 	/**
