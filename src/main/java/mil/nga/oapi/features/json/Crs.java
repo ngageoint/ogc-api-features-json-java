@@ -71,6 +71,22 @@ public class Crs {
 	}
 
 	/**
+	 * Constructor
+	 * 
+	 * @param authority
+	 *            authority
+	 * @param version
+	 *            version
+	 * @param code
+	 *            code
+	 */
+	public Crs(String authority, String version, String code) {
+		this.authority = authority;
+		this.version = version;
+		this.code = code;
+	}
+
+	/**
 	 * Set the CRS
 	 * 
 	 * @param crs
