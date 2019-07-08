@@ -39,7 +39,7 @@ String featureCollectionContent = FeaturesConverter.toStringValue(featureCollect
 
 ### Installation ###
 
-Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga.sf|sf-geojson|2.0.1|jar) (JAR, POM, Source, Javadoc)
+Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga.oapi.features|oapi-features-json|1.0.0|jar) (JAR, POM, Source, Javadoc)
 
 ```xml
 
