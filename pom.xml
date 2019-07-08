@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>mil.nga.oapi.features</groupId>
 	<artifactId>oapi-features-json</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 	<name>OGC API Features JSON</name>
 	<url>https://github.com/ngageoint/ogc-api-features-json-java</url>
