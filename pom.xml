@@ -76,6 +76,7 @@
 				<version>3.0.1</version>
 				<configuration>
 					<links>
+						<link>http://ngageoint.github.io/simple-features-java/docs/api/</link>
 						<link>http://ngageoint.github.io/simple-features-geojson-java/docs/api/</link>
 					</links>
 				</configuration>
