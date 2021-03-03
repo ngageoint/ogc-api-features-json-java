@@ -39,21 +39,21 @@ String featureCollectionContent = FeaturesConverter.toStringValue(featureCollect
 
 ### Installation ###
 
-Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga.oapi.features|oapi-features-json|1.0.2|jar) (JAR, POM, Source, Javadoc)
+Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga.oapi.features|oapi-features-json|1.0.3|jar) (JAR, POM, Source, Javadoc)
 
 ```xml
 
 <dependency>
     <groupId>mil.nga.oapi.features</groupId>
     <artifactId>oapi-features-json</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 
 ```
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/ogc-api-features-json-java/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/ogc-api-features-json-java/actions?query=workflow%3A%22Build+%26+Test%22)
+[![Build & Test](https://github.com/ngageoint/ogc-api-features-json-java/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/ogc-api-features-json-java/actions/workflows/build-test.yml)
 
 Build this repository using Eclipse and/or Maven:
 
