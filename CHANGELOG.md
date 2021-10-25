@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.4 (TBD)
+## 2.0.0 (TBD)
 
 * sf-geojson version 3.0.0
 
