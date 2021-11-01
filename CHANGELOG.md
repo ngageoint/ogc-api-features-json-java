@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.0 (TBD)
+## [2.0.0](https://github.com/ngageoint/ogc-api-features-json-java/releases/tag/2.0.0) (11-01-2021)
 
 * sf-geojson version 3.0.0
 
