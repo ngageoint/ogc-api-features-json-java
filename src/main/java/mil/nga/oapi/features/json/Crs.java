@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 /**
  * Coordinate Reference System
- * 
+ * <p>
  * http://www.opengis.net/def/crs/{authority}/{version}/{code}
  * 
  * @author osbornb
