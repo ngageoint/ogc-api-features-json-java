@@ -39,14 +39,14 @@ String featureCollectionContent = FeaturesConverter.toStringValue(featureCollect
 
 ### Installation ###
 
-Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga.oapi.features|oapi-features-json|2.2.0|jar) (JAR, POM, Source, Javadoc)
+Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga.oapi.features|oapi-features-json|2.3.0|jar) (JAR, POM, Source, Javadoc)
 
 ```xml
 
 <dependency>
     <groupId>mil.nga.oapi.features</groupId>
     <artifactId>oapi-features-json</artifactId>
-    <version>2.2.0</version>
+    <version>2.3.0</version>
 </dependency>
 
 ```
