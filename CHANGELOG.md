@@ -4,8 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.3.3 (TBD)
+## 3.0.0 (TBD)
 
+* Temporal interval fixed to be an array of intervals
+* Spatial bbox fixed to be an array of bounding boxes
 * sf-geojson version 3.3.3
 
 ## [2.3.2](https://github.com/ngageoint/ogc-api-features-json-java/releases/tag/2.3.2) (01-20-2023)
