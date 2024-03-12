@@ -55,7 +55,7 @@ public class FeaturesTest {
 				+ "    \"name\" : \"flurstueck\",\n"
 				+ "    \"title\" : \"Flurstück\",\n" + "    \"extent\" : {\n"
 				+ "      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"
-				+ "      \"temporal\" : { \"interval\" : [ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ] }\n"
+				+ "      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"
 				+ "    },\n" + "    \"links\" : [ {\n"
 				+ "      \"rel\" : \"item\",\n"
 				+ "      \"type\" : \"application/geo+json\",\n"
@@ -91,7 +91,7 @@ public class FeaturesTest {
 				+ "    \"title\" : \"Gebäude, Bauwerk\",\n"
 				+ "    \"extent\" : {\n"
 				+ "      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"
-				+ "      \"temporal\" : { \"interval\" : [ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ] }\n"
+				+ "      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"
 				+ "    },\n" + "    \"links\" : [ {\n"
 				+ "      \"rel\" : \"item\",\n"
 				+ "      \"type\" : \"application/geo+json\",\n"
@@ -123,7 +123,7 @@ public class FeaturesTest {
 				+ "    \"title\" : \"Verwaltungseinheit\",\n"
 				+ "    \"extent\" : {\n"
 				+ "      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"
-				+ "      \"temporal\" : { \"interval\" : [ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ] }\n"
+				+ "      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"
 				+ "    },\n" + "    \"links\" : [ {\n"
 				+ "      \"rel\" : \"item\",\n"
 				+ "      \"type\" : \"application/geo+json\",\n"
@@ -172,7 +172,7 @@ public class FeaturesTest {
 				+ "  \"description\": \"Buildings in the city of Bonn.\",\n"
 				+ "  \"extent\": {\n"
 				+ "  \"spatial\": { \"bbox\" : [ 7.01, 50.63, 7.22, 50.78 ] },\n"
-				+ "  \"temporal\": { \"interval\" : [ \"2010-02-15T12:34:56Z\", \"2018-03-18T12:11:00Z\" ] }\n"
+				+ "  \"temporal\": { \"interval\" : [[ \"2010-02-15T12:34:56Z\", \"2018-03-18T12:11:00Z\" ]] }\n"
 				+ "  },\n" + "  \"links\": [\n"
 				+ "  { \"href\": \"http://data.example.org/collections/buildings/items\",\n"
 				+ "  \"rel\": \"item\", \"type\": \"application/geo+json\",\n"
@@ -194,11 +194,12 @@ public class FeaturesTest {
 		TestCase.assertEquals(50.63, extent.getSpatial().getBbox().get(1));
 		TestCase.assertEquals(7.22, extent.getSpatial().getBbox().get(2));
 		TestCase.assertEquals(50.78, extent.getSpatial().getBbox().get(3));
-		TestCase.assertEquals(2, extent.getTemporal().getInterval().size());
+		TestCase.assertEquals(1, extent.getTemporal().getInterval().size());
+		TestCase.assertEquals(2, extent.getTemporal().getInterval().get(0).size());
 		TestCase.assertEquals("2010-02-15T12:34:56Z",
-				extent.getTemporal().getInterval().get(0));
+				extent.getTemporal().getInterval().get(0).get(0));
 		TestCase.assertEquals("2018-03-18T12:11:00Z",
-				extent.getTemporal().getInterval().get(1));
+				extent.getTemporal().getInterval().get(0).get(1));
 		List<Link> links = collection.getLinks();
 		TestCase.assertNotNull(extent);
 		TestCase.assertEquals(2, links.size());
