@@ -19,11 +19,12 @@ public class Spatial extends FeaturesObject {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * West, south, east, north edges of the bounding box. The coordinates are
-	 * in the coordinate reference system specified in `crs`. By default this is
-	 * WGS 84 longitude/latitude.
+	 * One or more bounding boxes that describe the spatial extent of the
+	 * dataset. In the Core only a single bounding box is supported. Extensions
+	 * may support additional areas. If multiple areas are provided, the union
+	 * of the bounding boxes describes the spatial extent.
 	 */
-	private List<Double> bbox = new ArrayList<>();
+	private List<List<Double>> bbox = new ArrayList<>();
 
 	/**
 	 * Coordinate reference system of the coordinates in the spatial extent
@@ -46,7 +47,7 @@ public class Spatial extends FeaturesObject {
 	 * 
 	 * @return bounding box
 	 */
-	public List<Double> getBbox() {
+	public List<List<Double>> getBbox() {
 		return bbox;
 	}
 
@@ -56,8 +57,18 @@ public class Spatial extends FeaturesObject {
 	 * @param bbox
 	 *            bounding box
 	 */
-	public void setBbox(List<Double> bbox) {
+	public void setBbox(List<List<Double>> bbox) {
 		this.bbox = bbox;
+	}
+
+	/**
+	 * Add a bounding box
+	 * 
+	 * @param bbox
+	 *            single bounding box
+	 */
+	public void addBbox(List<Double> bbox) {
+		this.bbox.add(bbox);
 	}
 
 	/**

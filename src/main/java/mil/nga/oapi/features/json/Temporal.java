@@ -14,13 +14,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Temporal {
 
 	/**
-	 * One or more time intervals that describe the temporal extent of the dataset.
-	 * The value `null` is supported and indicates an unbounded interval end.
-	 * In the Core only a single time interval is supported. Extensions may support
-	 * multiple intervals. If multiple intervals are provided, the union of the
-	 * intervals describes the temporal extent.
+	 * One or more time intervals that describe the temporal extent of the
+	 * dataset. The value `null` is supported and indicates an unbounded
+	 * interval end. In the Core only a single time interval is supported.
+	 * Extensions may support multiple intervals. If multiple intervals are
+	 * provided, the union of the intervals describes the temporal extent.
 	 */
-	private List<List<String>> interval = new ArrayList<>(new ArrayList<>());
+	private List<List<String>> interval = new ArrayList<>();
 
 	/**
 	 * Coordinate reference system of the coordinates in the temporal extent
@@ -55,6 +55,16 @@ public class Temporal {
 	 */
 	public void setInterval(List<List<String>> interval) {
 		this.interval = interval;
+	}
+
+	/**
+	 * Add an interval
+	 * 
+	 * @param interval
+	 *            single interval
+	 */
+	public void addInterval(List<String> interval) {
+		this.interval.add(interval);
 	}
 
 	/**

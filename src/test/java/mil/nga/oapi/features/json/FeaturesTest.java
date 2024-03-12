@@ -54,7 +54,7 @@ public class FeaturesTest {
 				+ "  \"collections\" : [ {\n"
 				+ "    \"name\" : \"flurstueck\",\n"
 				+ "    \"title\" : \"Flurstück\",\n" + "    \"extent\" : {\n"
-				+ "      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"
+				+ "      \"spatial\" : { \"bbox\" : [[ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ]] },\n"
 				+ "      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"
 				+ "    },\n" + "    \"links\" : [ {\n"
 				+ "      \"rel\" : \"item\",\n"
@@ -90,7 +90,7 @@ public class FeaturesTest {
 				+ "    \"name\" : \"gebaeudebauwerk\",\n"
 				+ "    \"title\" : \"Gebäude, Bauwerk\",\n"
 				+ "    \"extent\" : {\n"
-				+ "      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"
+				+ "      \"spatial\" : { \"bbox\" : [[ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ]] },\n"
 				+ "      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"
 				+ "    },\n" + "    \"links\" : [ {\n"
 				+ "      \"rel\" : \"item\",\n"
@@ -122,7 +122,7 @@ public class FeaturesTest {
 				+ "  }, {\n" + "    \"name\" : \"verwaltungseinheit\",\n"
 				+ "    \"title\" : \"Verwaltungseinheit\",\n"
 				+ "    \"extent\" : {\n"
-				+ "      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"
+				+ "      \"spatial\" : { \"bbox\" : [[ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ]] },\n"
 				+ "      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"
 				+ "    },\n" + "    \"links\" : [ {\n"
 				+ "      \"rel\" : \"item\",\n"
@@ -162,6 +162,130 @@ public class FeaturesTest {
 	}
 
 	/**
+	 * Test collections
+	 */
+	@Test
+	public void testCollections2() {
+
+		String content = "{\"links\": ["
+				+ "{ \"href\": \"http://data.example.org/collections.json\","
+				+ "\"rel\": \"self\", \"type\": \"application/json\", \"title\": \"this document\" },"
+				+ "{ \"href\": \"http://data.example.org/collections.html\","
+				+ "\"rel\": \"alternate\", \"type\": \"text/html\", \"title\": \"this document as HTML\" },"
+				+ "{ \"href\": \"http://schemas.example.org/1.0/buildings.xsd\","
+				+ "\"rel\": \"describedby\", \"type\": \"application/xml\", \"title\": \"GML application schema for Acme Corporation building data\" },"
+				+ "{ \"href\": \"http://download.example.org/buildings.gpkg\","
+				+ "\"rel\": \"enclosure\", \"type\": \"application/geopackage+sqlite3\", \"title\": \"Bulk download (GeoPackage)\", \"length\": 472546 }"
+				+ "]," + "\"collections\": [" + "{" + "\"id\": \"buildings\","
+				+ "\"title\": \"Buildings\","
+				+ "\"description\": \"Buildings in the city of Bonn.\","
+				+ "\"extent\": {" + "\"spatial\": {"
+				+ "\"bbox\": [ [ 7.01, 50.63, 7.22, 50.78 ] ]" + "},"
+				+ "\"temporal\": {"
+				+ "\"interval\": [ [ \"2010-02-15T12:34:56Z\", null ] ]" + "}"
+				+ "}," + "\"itemType\": \"feature\"," + "\"links\": ["
+				+ "{ \"href\": \"http://data.example.org/collections/buildings\","
+				+ "\"rel\": \"self\", \"title\": \"This collection\" },"
+				+ "{ \"href\": \"http://data.example.org/collections/buildings/items\","
+				+ "\"rel\": \"items\", \"type\": \"application/geo+json\","
+				+ "\"title\": \"Buildings\" },"
+				+ "{ \"href\": \"https://creativecommons.org/publicdomain/zero/1.0/\","
+				+ "\"rel\": \"license\", \"type\": \"text/html\","
+				+ "\"title\": \"CC0-1.0\" },"
+				+ "{ \"href\": \"https://creativecommons.org/publicdomain/zero/1.0/rdf\","
+				+ "\"rel\": \"license\", \"type\": \"application/rdf+xml\","
+				+ "\"title\": \"CC0-1.0\" }" + "]" + "}" + "]" + "}";
+		Collections collections = FeaturesConverter.toCollections(content);
+		TestCase.assertNotNull(collections);
+		List<Link> links = collections.getLinks();
+		TestCase.assertNotNull(links);
+		TestCase.assertEquals(4, links.size());
+		TestCase.assertEquals("http://data.example.org/collections.json",
+				links.get(0).getHref());
+		TestCase.assertEquals("self", links.get(0).getRel());
+		TestCase.assertEquals("application/json", links.get(0).getType());
+		TestCase.assertEquals("this document", links.get(0).getTitle());
+		TestCase.assertEquals("http://data.example.org/collections.html",
+				links.get(1).getHref());
+		TestCase.assertEquals("alternate", links.get(1).getRel());
+		TestCase.assertEquals("text/html", links.get(1).getType());
+		TestCase.assertEquals("this document as HTML", links.get(1).getTitle());
+		TestCase.assertEquals("http://schemas.example.org/1.0/buildings.xsd",
+				links.get(2).getHref());
+		TestCase.assertEquals("describedby", links.get(2).getRel());
+		TestCase.assertEquals("application/xml", links.get(2).getType());
+		TestCase.assertEquals(
+				"GML application schema for Acme Corporation building data",
+				links.get(2).getTitle());
+		TestCase.assertEquals("http://download.example.org/buildings.gpkg",
+				links.get(3).getHref());
+		TestCase.assertEquals("enclosure", links.get(3).getRel());
+		TestCase.assertEquals("application/geopackage+sqlite3",
+				links.get(3).getType());
+		TestCase.assertEquals("Bulk download (GeoPackage)",
+				links.get(3).getTitle());
+		TestCase.assertEquals(472546, links.get(3).getLength().intValue());
+		TestCase.assertEquals(1, collections.getCollections().size());
+		Collection collection = collections.getCollections().get(0);
+		TestCase.assertEquals("buildings", collection.getId());
+		TestCase.assertEquals("Buildings", collection.getTitle());
+		TestCase.assertEquals("Buildings in the city of Bonn.",
+				collection.getDescription());
+		Extent extent = collection.getExtent();
+		TestCase.assertNotNull(extent);
+		TestCase.assertEquals(1, extent.getSpatial().getBbox().size());
+		TestCase.assertEquals(4, extent.getSpatial().getBbox().get(0).size());
+		TestCase.assertEquals(7.01,
+				extent.getSpatial().getBbox().get(0).get(0));
+		TestCase.assertEquals(50.63,
+				extent.getSpatial().getBbox().get(0).get(1));
+		TestCase.assertEquals(7.22,
+				extent.getSpatial().getBbox().get(0).get(2));
+		TestCase.assertEquals(50.78,
+				extent.getSpatial().getBbox().get(0).get(3));
+		TestCase.assertEquals(1, extent.getTemporal().getInterval().size());
+		TestCase.assertEquals(2,
+				extent.getTemporal().getInterval().get(0).size());
+		TestCase.assertEquals("2010-02-15T12:34:56Z",
+				extent.getTemporal().getInterval().get(0).get(0));
+		TestCase.assertNull(extent.getTemporal().getInterval().get(0).get(1));
+		TestCase.assertEquals("feature", collection.getItemType());
+		List<Link> collectionLinks = collection.getLinks();
+		TestCase.assertNotNull(collectionLinks);
+		TestCase.assertEquals(4, collectionLinks.size());
+		TestCase.assertEquals("http://data.example.org/collections/buildings",
+				collectionLinks.get(0).getHref());
+		TestCase.assertEquals("self", collectionLinks.get(0).getRel());
+		TestCase.assertEquals("This collection",
+				collectionLinks.get(0).getTitle());
+		TestCase.assertEquals(
+				"http://data.example.org/collections/buildings/items",
+				collectionLinks.get(1).getHref());
+		TestCase.assertEquals("items", collectionLinks.get(1).getRel());
+		TestCase.assertEquals("application/geo+json",
+				collectionLinks.get(1).getType());
+		TestCase.assertEquals("Buildings", collectionLinks.get(1).getTitle());
+		TestCase.assertEquals(
+				"https://creativecommons.org/publicdomain/zero/1.0/",
+				collectionLinks.get(2).getHref());
+		TestCase.assertEquals("license", collectionLinks.get(2).getRel());
+		TestCase.assertEquals("text/html", collectionLinks.get(2).getType());
+		TestCase.assertEquals("CC0-1.0", collectionLinks.get(2).getTitle());
+		TestCase.assertEquals(
+				"https://creativecommons.org/publicdomain/zero/1.0/rdf",
+				collectionLinks.get(3).getHref());
+		TestCase.assertEquals("license", collectionLinks.get(3).getRel());
+		TestCase.assertEquals("application/rdf+xml",
+				collectionLinks.get(3).getType());
+		TestCase.assertEquals("CC0-1.0", collectionLinks.get(3).getTitle());
+
+		content = FeaturesConverter.toStringValue(collections);
+		TestCase.assertNotNull(content);
+		TestCase.assertNotNull(FeaturesConverter.toCollections(content));
+
+	}
+
+	/**
 	 * Test a collection
 	 */
 	@Test
@@ -171,7 +295,7 @@ public class FeaturesTest {
 				+ "  \"title\": \"Buildings\",\n"
 				+ "  \"description\": \"Buildings in the city of Bonn.\",\n"
 				+ "  \"extent\": {\n"
-				+ "  \"spatial\": { \"bbox\" : [ 7.01, 50.63, 7.22, 50.78 ] },\n"
+				+ "  \"spatial\": { \"bbox\" : [[ 7.01, 50.63, 7.22, 50.78 ]] },\n"
 				+ "  \"temporal\": { \"interval\" : [[ \"2010-02-15T12:34:56Z\", \"2018-03-18T12:11:00Z\" ]] }\n"
 				+ "  },\n" + "  \"links\": [\n"
 				+ "  { \"href\": \"http://data.example.org/collections/buildings/items\",\n"
@@ -189,19 +313,25 @@ public class FeaturesTest {
 				collection.getDescription());
 		Extent extent = collection.getExtent();
 		TestCase.assertNotNull(extent);
-		TestCase.assertEquals(4, extent.getSpatial().getBbox().size());
-		TestCase.assertEquals(7.01, extent.getSpatial().getBbox().get(0));
-		TestCase.assertEquals(50.63, extent.getSpatial().getBbox().get(1));
-		TestCase.assertEquals(7.22, extent.getSpatial().getBbox().get(2));
-		TestCase.assertEquals(50.78, extent.getSpatial().getBbox().get(3));
+		TestCase.assertEquals(1, extent.getSpatial().getBbox().size());
+		TestCase.assertEquals(4, extent.getSpatial().getBbox().get(0).size());
+		TestCase.assertEquals(7.01,
+				extent.getSpatial().getBbox().get(0).get(0));
+		TestCase.assertEquals(50.63,
+				extent.getSpatial().getBbox().get(0).get(1));
+		TestCase.assertEquals(7.22,
+				extent.getSpatial().getBbox().get(0).get(2));
+		TestCase.assertEquals(50.78,
+				extent.getSpatial().getBbox().get(0).get(3));
 		TestCase.assertEquals(1, extent.getTemporal().getInterval().size());
-		TestCase.assertEquals(2, extent.getTemporal().getInterval().get(0).size());
+		TestCase.assertEquals(2,
+				extent.getTemporal().getInterval().get(0).size());
 		TestCase.assertEquals("2010-02-15T12:34:56Z",
 				extent.getTemporal().getInterval().get(0).get(0));
 		TestCase.assertEquals("2018-03-18T12:11:00Z",
 				extent.getTemporal().getInterval().get(0).get(1));
 		List<Link> links = collection.getLinks();
-		TestCase.assertNotNull(extent);
+		TestCase.assertNotNull(links);
 		TestCase.assertEquals(2, links.size());
 		TestCase.assertEquals(
 				"http://data.example.org/collections/buildings/items",
