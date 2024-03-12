@@ -14,11 +14,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Temporal {
 
 	/**
-	 * Begin and end times of the time interval. The timestamps are in the
-	 * coordinate reference system specified in `trs`. By default this is the
-	 * Gregorian calendar.
+	 * One or more time intervals that describe the temporal extent of the dataset.
+	 * The value `null` is supported and indicates an unbounded interval end.
+	 * In the Core only a single time interval is supported. Extensions may support
+	 * multiple intervals. If multiple intervals are provided, the union of the
+	 * intervals describes the temporal extent.
 	 */
-	private List<String> interval = new ArrayList<>();
+	private List<List<String>> interval = new ArrayList<>(new ArrayList<>());
 
 	/**
 	 * Coordinate reference system of the coordinates in the temporal extent
@@ -41,7 +43,7 @@ public class Temporal {
 	 * 
 	 * @return interval
 	 */
-	public List<String> getInterval() {
+	public List<List<String>> getInterval() {
 		return interval;
 	}
 
@@ -51,7 +53,7 @@ public class Temporal {
 	 * @param interval
 	 *            interval
 	 */
-	public void setInterval(List<String> interval) {
+	public void setInterval(List<List<String>> interval) {
 		this.interval = interval;
 	}
 
