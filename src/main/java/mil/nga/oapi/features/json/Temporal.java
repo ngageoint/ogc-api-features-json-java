@@ -39,22 +39,56 @@ public class Temporal {
 	}
 
 	/**
-	 * Get the interval
+	 * Get the interval collection
 	 * 
-	 * @return interval
+	 * @return interval collection
+	 * @since 3.0.0
 	 */
 	public List<List<String>> getInterval() {
 		return interval;
 	}
 
 	/**
-	 * Set the interval
+	 * Set the interval collection
 	 * 
 	 * @param interval
-	 *            interval
+	 *            interval collection
+	 * @since 3.0.0
 	 */
 	public void setInterval(List<List<String>> interval) {
 		this.interval = interval;
+	}
+
+	/**
+	 * Get the interval collection count
+	 * 
+	 * @return count
+	 * @since 3.0.0
+	 */
+	public int intervalCount() {
+		return this.interval.size();
+	}
+
+	/**
+	 * Get the first interval
+	 * 
+	 * @return interval
+	 * @since 3.0.0
+	 */
+	public List<String> firstInterval() {
+		return getInterval(0);
+	}
+
+	/**
+	 * Get the interval at the index
+	 * 
+	 * @param index
+	 *            0 based index
+	 * @return interval
+	 * @since 3.0.0
+	 */
+	public List<String> getInterval(int index) {
+		return this.interval.get(index);
 	}
 
 	/**
@@ -62,6 +96,7 @@ public class Temporal {
 	 * 
 	 * @param interval
 	 *            single interval
+	 * @since 3.0.0
 	 */
 	public void addInterval(List<String> interval) {
 		this.interval.add(interval);

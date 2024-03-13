@@ -233,22 +233,17 @@ public class FeaturesTest {
 				collection.getDescription());
 		Extent extent = collection.getExtent();
 		TestCase.assertNotNull(extent);
-		TestCase.assertEquals(1, extent.getSpatial().getBbox().size());
-		TestCase.assertEquals(4, extent.getSpatial().getBbox().get(0).size());
-		TestCase.assertEquals(7.01,
-				extent.getSpatial().getBbox().get(0).get(0));
-		TestCase.assertEquals(50.63,
-				extent.getSpatial().getBbox().get(0).get(1));
-		TestCase.assertEquals(7.22,
-				extent.getSpatial().getBbox().get(0).get(2));
-		TestCase.assertEquals(50.78,
-				extent.getSpatial().getBbox().get(0).get(3));
-		TestCase.assertEquals(1, extent.getTemporal().getInterval().size());
-		TestCase.assertEquals(2,
-				extent.getTemporal().getInterval().get(0).size());
+		TestCase.assertEquals(1, extent.getSpatial().bboxCount());
+		TestCase.assertEquals(4, extent.getSpatial().firstBbox().size());
+		TestCase.assertEquals(7.01, extent.getSpatial().firstBbox().get(0));
+		TestCase.assertEquals(50.63, extent.getSpatial().firstBbox().get(1));
+		TestCase.assertEquals(7.22, extent.getSpatial().firstBbox().get(2));
+		TestCase.assertEquals(50.78, extent.getSpatial().firstBbox().get(3));
+		TestCase.assertEquals(1, extent.getTemporal().intervalCount());
+		TestCase.assertEquals(2, extent.getTemporal().firstInterval().size());
 		TestCase.assertEquals("2010-02-15T12:34:56Z",
-				extent.getTemporal().getInterval().get(0).get(0));
-		TestCase.assertNull(extent.getTemporal().getInterval().get(0).get(1));
+				extent.getTemporal().firstInterval().get(0));
+		TestCase.assertNull(extent.getTemporal().firstInterval().get(1));
 		TestCase.assertEquals("feature", collection.getItemType());
 		List<Link> collectionLinks = collection.getLinks();
 		TestCase.assertNotNull(collectionLinks);
@@ -313,23 +308,18 @@ public class FeaturesTest {
 				collection.getDescription());
 		Extent extent = collection.getExtent();
 		TestCase.assertNotNull(extent);
-		TestCase.assertEquals(1, extent.getSpatial().getBbox().size());
-		TestCase.assertEquals(4, extent.getSpatial().getBbox().get(0).size());
-		TestCase.assertEquals(7.01,
-				extent.getSpatial().getBbox().get(0).get(0));
-		TestCase.assertEquals(50.63,
-				extent.getSpatial().getBbox().get(0).get(1));
-		TestCase.assertEquals(7.22,
-				extent.getSpatial().getBbox().get(0).get(2));
-		TestCase.assertEquals(50.78,
-				extent.getSpatial().getBbox().get(0).get(3));
-		TestCase.assertEquals(1, extent.getTemporal().getInterval().size());
-		TestCase.assertEquals(2,
-				extent.getTemporal().getInterval().get(0).size());
+		TestCase.assertEquals(1, extent.getSpatial().bboxCount());
+		TestCase.assertEquals(4, extent.getSpatial().firstBbox().size());
+		TestCase.assertEquals(7.01, extent.getSpatial().firstBbox().get(0));
+		TestCase.assertEquals(50.63, extent.getSpatial().firstBbox().get(1));
+		TestCase.assertEquals(7.22, extent.getSpatial().firstBbox().get(2));
+		TestCase.assertEquals(50.78, extent.getSpatial().firstBbox().get(3));
+		TestCase.assertEquals(1, extent.getTemporal().intervalCount());
+		TestCase.assertEquals(2, extent.getTemporal().firstInterval().size());
 		TestCase.assertEquals("2010-02-15T12:34:56Z",
-				extent.getTemporal().getInterval().get(0).get(0));
+				extent.getTemporal().firstInterval().get(0));
 		TestCase.assertEquals("2018-03-18T12:11:00Z",
-				extent.getTemporal().getInterval().get(0).get(1));
+				extent.getTemporal().firstInterval().get(1));
 		List<Link> links = collection.getLinks();
 		TestCase.assertNotNull(links);
 		TestCase.assertEquals(2, links.size());

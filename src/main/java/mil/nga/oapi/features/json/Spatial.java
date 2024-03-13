@@ -43,22 +43,56 @@ public class Spatial extends FeaturesObject {
 	}
 
 	/**
-	 * Get the bounding box
+	 * Get the bounding box collection
 	 * 
-	 * @return bounding box
+	 * @return bounding box collection
+	 * @since 3.0.0
 	 */
 	public List<List<Double>> getBbox() {
 		return bbox;
 	}
 
 	/**
-	 * Set the bounding box
+	 * Set the bounding box collection
 	 * 
 	 * @param bbox
-	 *            bounding box
+	 *            bounding box collection
+	 * @since 3.0.0
 	 */
 	public void setBbox(List<List<Double>> bbox) {
 		this.bbox = bbox;
+	}
+
+	/**
+	 * Get the bounding box collection count
+	 * 
+	 * @return count
+	 * @since 3.0.0
+	 */
+	public int bboxCount() {
+		return this.bbox.size();
+	}
+
+	/**
+	 * Get the first bounding box
+	 * 
+	 * @return bounding box
+	 * @since 3.0.0
+	 */
+	public List<Double> firstBbox() {
+		return getBbox(0);
+	}
+
+	/**
+	 * Get the bounding box at the index
+	 * 
+	 * @param index
+	 *            0 based index
+	 * @return bounding box
+	 * @since 3.0.0
+	 */
+	public List<Double> getBbox(int index) {
+		return this.bbox.get(index);
 	}
 
 	/**
@@ -66,6 +100,7 @@ public class Spatial extends FeaturesObject {
 	 * 
 	 * @param bbox
 	 *            single bounding box
+	 * @since 3.0.0
 	 */
 	public void addBbox(List<Double> bbox) {
 		this.bbox.add(bbox);
