@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 3.0.1 (TBD)
+
+* TBD
+
 ## [3.0.0](https://github.com/ngageoint/ogc-api-features-json-java/releases/tag/3.0.0) (04-03-2024)
 
 * Temporal interval fixed to be an array of intervals
